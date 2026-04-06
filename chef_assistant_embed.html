@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Chef Assistant</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      text-align: center;
+    }
+    .container {
+      padding: 40px 20px;
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 18px;
+      color: #cbd5f5;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+    .chat-box {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      min-height: 600px;
+      background: #111827;
+    }
+    #root {
+      min-height: 600px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🍳 AI Chef Assistant</h1>
+    <p>
+      Tell me what ingredients you have, and I’ll instantly suggest what to cook.
+      Fast, simple, and delicious.
+    </p>
+    <div class="chat-box">
+      <div id="root"></div>
+      <script>
+        window.wxOConfiguration = {
+          orchestrationID: "20260404-1745-4779-905f-a9196a64db29_20260404-1746-2241-208d-1fd48d741ba3",
+          hostURL: "https://eu-central-1.dl.watson-orchestrate.ibm.com",
+          rootElementID: "root",
+          chatOptions: {
+            agentId: "946849d5-e6c7-494b-90f8-f0d4568f3c29"
+          }
+        };
+        setTimeout(function () {
+          const script = document.createElement('script');
+          script.src = `${window.wxOConfiguration.hostURL}/wxochat/wxoLoader.js?embed=true`;
+          script.addEventListener('load', function () {
+            wxoLoader.init();
+          });
+          document.head.appendChild(script);
+        }, 0);
+      </script>
+    </div>
+  </div>
+</body>
+</html>
